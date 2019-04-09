@@ -1,2 +1,2 @@
-# blog
-blog of BIT
+# B.I.T BLOG
+
