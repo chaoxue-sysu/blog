@@ -69,11 +69,8 @@ def decode_seq(file):
 
 
 def test():
-    # print(add_bit([3,3]))
     encode_seq('ATCGATGCGGATATATATATTTTTATATTTGGGGGGAGGAGAGAGGAGACACACACC','seq.bin')
     decode_seq('seq.bin')
-    # print(decode_base(255))
-    # print(int('11',2))
 
 if __name__=='__main__':
     test()
