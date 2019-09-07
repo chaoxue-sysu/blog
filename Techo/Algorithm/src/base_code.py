@@ -1,6 +1,6 @@
 import six
 
-def add_bit(bits):
+def encode_base(bits):
     byte=0
     new_bit=[]
     for i in range(len(bits)-4):
@@ -27,7 +27,7 @@ def decode_base(bytes):
     return seq
 
 
-def encode_base(str,file):
+def encode_seq(str,file):
     code={'A':0,'T':1,'C':2,'G':3}
     bits=[]
     for base in list(str):
@@ -41,8 +41,8 @@ def encode_base(str,file):
     byte_int.append(remain)
 
     for i in range(len(bits)//4):
-        byte_int.append(add_bit(bits[i*4:i*4+4]))
-    byte_int.append(add_bit(bits[(len(bits)//4)*4:]))
+        byte_int.append(encode_base(bits[i*4:i*4+4]))
+    byte_int.append(encode_base(bits[(len(bits)//4)*4:]))
     print(byte_int)
     bw=open(file,'wb')
     for byte in byte_int:
@@ -70,7 +70,7 @@ def decode_seq(file):
 
 def test():
     # print(add_bit([3,3]))
-    encode_base('ATCGATGCGGATATATATATTTTTATATTTGGGGGGAGGAGAGAGGAGACACACACC','seq.bin')
+    encode_seq('ATCGATGCGGATATATATATTTTTATATTTGGGGGGAGGAGAGAGGAGACACACACC','seq.bin')
     decode_seq('seq.bin')
     # print(decode_base(255))
     # print(int('11',2))
